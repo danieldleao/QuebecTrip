@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quebec City New Year's Trip — Budget Accommodation Guide</title>
+<style>
+  :root{
+    --bg:#f7f5ef; --card:#ffffff; --ink:#1e2a32; --muted:#5d6b75;
+    --accent:#0e6e5c; --accent2:#c05621; --gold:#b7791f; --line:#e5e0d3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header.hero{background:linear-gradient(135deg,#0e6e5c,#134e4a);color:#fff;padding:2.5rem 1.25rem;text-align:center}
+  header.hero h1{margin:0 0 .4rem;font-size:1.7rem}
+  header.hero p{margin:.25rem 0;opacity:.92}
+  .badges{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1rem}
+  .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.3rem .8rem;font-size:.85rem}
+  main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+  h2{font-size:1.35rem;margin:2.2rem 0 1rem;border-bottom:3px solid var(--accent);padding-bottom:.35rem}
+  h3{margin:0 0 .3rem;font-size:1.1rem}
+  .note{background:#fff8e6;border:1px solid #f0d98a;border-radius:10px;padding:1rem 1.1rem;font-size:.92rem;color:#5c4a12}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.25rem 1.25rem 1.1rem;margin:1rem 0;box-shadow:0 2px 8px rgba(30,42,50,.05)}
+  .card-top{display:flex;gap:.8rem;align-items:flex-start;flex-wrap:wrap}
+  .rank{flex:0 0 auto;background:var(--accent);color:#fff;font-weight:700;border-radius:10px;min-width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+  .rank.spec{background:var(--gold)}
+  .price{margin-left:auto;text-align:right}
+  .price .big{font-size:1.5rem;font-weight:800;color:var(--accent)}
+  .price .sub{font-size:.82rem;color:var(--muted)}
+  .meta{font-size:.88rem;color:var(--muted);margin:.35rem 0 .6rem}
+  .tag{display:inline-block;background:#eef4f1;color:#0e6e5c;border-radius:999px;padding:.12rem .6rem;font-size:.78rem;margin:.12rem .2rem .12rem 0;font-weight:600}
+  .tag.warn{background:#fdf0e7;color:#9a4a12}
+  .tag.spec{background:#fdf6e3;color:#8a6d1a}
+  ul.facts{margin:.5rem 0;padding-left:1.15rem;font-size:.93rem}
+  ul.facts li{margin:.22rem 0}
+  .proscons{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:.6rem}
+  .proscons div{border-radius:10px;padding:.6rem .8rem;font-size:.88rem}
+  .pros{background:#eef7f1;border:1px solid #cfe6d8}
+  .cons{background:#fdf1f1;border:1px solid #f2d3d3}
+  .pros b{color:#0e6e5c}.cons b{color:#a33}
+  .proscons ul{margin:.3rem 0;padding-left:1.1rem}
+  .links{margin-top:.7rem;font-size:.9rem}
+  .links a{color:var(--accent);font-weight:600;text-decoration:none;border-bottom:1px dotted var(--accent);margin-right:.9rem}
+  .links a:hover{border-bottom-style:solid}
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+  table{border-collapse:collapse;width:100%;min-width:860px;font-size:.86rem}
+  th,td{padding:.6rem .7rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  th{background:#0e6e5c;color:#fff;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap}
+  tr:nth-child(even) td{background:#faf9f5}
+  td.price-cell{font-weight:700;color:var(--accent);white-space:nowrap}
+  .verdict{display:grid;gap:.9rem}
+  .verdict .card{margin:0;border-left:5px solid var(--accent)}
+  .verdict .card.gold{border-left-color:var(--gold)}
+  footer{max-width:960px;margin:0 auto;padding:0 1.25rem 2.5rem;color:var(--muted);font-size:.85rem}
+  @media(max-width:640px){
+    .proscons{grid-template-columns:1fr}
+    .price{margin-left:0;text-align:left;width:100%}
+    header.hero h1{font-size:1.35rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>❄️ Quebec City New Year's Trip — Budget Accommodation Guide</h1>
+  <p>Dec 27, 2026 → Jan 1, 2027 · 5 nights · 8 people (5 adults + 3 kids: 13, 6, 6)</p>
+  <div class="badges">
+    <span class="badge">🏨 5 budget hotels</span>
+    <span class="badge">🏠 5 budget rentals</span>
+    <span class="badge">💰 Sorted cheapest first</span>
+    <span class="badge">All prices CAD</span>
+  </div>
+</header>
+
+<main>
+
+<h2>How to read the prices</h2>
+<div class="note">
+  Exact Dec 27–Jan 1 rates aren't published this far out — they need a live date query. Nightly rates below are <b>estimates</b> for New Year's peak week (benchmarked against December averages and current "from" prices), except <b>Ferme St-Adolphe</b> which publishes real rates. Taxes estimated at ~18% (GST 5% + QST 9.975% + lodging tax ~3.5%). Airbnb adds ~14% service fee + ~18.5% Quebec taxes on top of nightly rates. Hotel totals = room + tax + parking (1 car), breakfast noted separately. Rental totals = nightly + cleaning + platform fees + tax.
+</div>
+
+<h2>Ranked options — cheapest first</h2>
+
+<!-- 1 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">1</div>
+    <div><h3>Motel Lévis</h3><div class="meta">Budget motel · Lévis · ~30–36 min drive to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$1,298</div><div class="sub">~C$162/person · ~C$260/nt</div></div>
+  </div>
+  <div><span class="tag">2× rooms</span><span class="tag warn">No breakfast</span><span class="tag warn">No pool</span><span class="tag">Free parking</span><span class="tag">Free WiFi</span></div>
+  <ul class="facts">
+    <li>Config: 2× standard rooms (2 queens or equiv.) — cheapest hotel config for 8</li>
+    <li>Nightly est. ~C$110/room (KAYAK avg $100–123; NY-week premium applied)</li>
+    <li>5 nights: 2 × 110 × 5 = C$1,100 + ~18% tax ≈ <b>C$1,298 all-in</b></li>
+    <li>Ferry terminal 4.2 km away — scenic alternative to the bridge</li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Absolute cheapest — ~70% less than cheapest downtown hotel</li><li>Free parking</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>No breakfast (budget extra for eating out)</li><li>No pool; 7.2/10 reviews, some cleanliness complaints</li><li>Longest winter drive; NYE bridge/ferry logistics</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.kayak.com/Levis-Hotels-Motel-Levis.436720.ksp" target="_blank" rel="noopener">KAYAK listing</a>
+    <a href="https://WWW.MOMONDO.COM/hotels/levis/Motel-Levis.mhd436720.ksp" target="_blank" rel="noopener">momondo listing</a>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">2</div>
+    <div><h3>Econo Lodge Airport</h3><div class="meta">Budget hotel · Sainte-Foy · ~15–20 min to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$1,652</div><div class="sub">~C$207/person · ~C$330/nt</div></div>
+  </div>
+  <div><span class="tag">2× rooms</span><span class="tag">Connecting rooms avail.</span><span class="tag">Free breakfast</span><span class="tag">Free parking</span><span class="tag">Kids stay free</span></div>
+  <ul class="facts">
+    <li>Config: 2× rooms; connecting rooms available; kids 17-under stay free on existing bedding</li>
+    <li>Nightly est. ~C$140/room (C$89 seen Oct shoulder season × ~1.5 NY uplift)</li>
+    <li>5 nights: 2 × 140 × 5 = C$1,400 + ~18% tax ≈ <b>C$1,652 all-in</b></li>
+    <li>Free continental breakfast daily — worth ~C$850+ vs. paid downtown breakfasts</li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Cheapest option with breakfast for all 8</li><li>Connecting rooms keep the two groups adjacent</li><li>Free parking, kids-stay-free policy</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>Basic 2-star (7.4/10); no confirmed pool</li><li>15–20 min drive each way; rollaway surcharge for 5th person</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.expedia.ca/Quebec-Hotels-Econo-Lodge-Airport.h280.Hotel-Information" target="_blank" rel="noopener">Expedia listing</a>
+    <a href="https://uk.hotels.com/ho206526/econo-lodge-airport-quebec-canada/" target="_blank" rel="noopener">Hotels.com listing</a>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">3</div>
+    <div><h3>Hôtel Lindbergh par JARO</h3><div class="meta">Budget hotel · Sainte-Foy shopping district · ~15 min to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$1,888</div><div class="sub">~C$236/person · ~C$378/nt</div></div>
+  </div>
+  <div><span class="tag">2× rooms</span><span class="tag">Free breakfast</span><span class="tag">Free parking</span><span class="tag">8.2/10 rating</span></div>
+  <ul class="facts">
+    <li>Config: 2× rooms near Laurier Québec mall/restaurants</li>
+    <li>Nightly est. ~C$160/room (3-star tier; conservative estimate — verify live)</li>
+    <li>5 nights: 2 × 160 × 5 = C$1,600 + ~18% tax ≈ <b>C$1,888 all-in</b></li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Solid 8.2/10 rating; shopping/restaurant district</li><li>Free breakfast + free parking</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>No pool found; daily driving to Old Quebec</li><li>Softest estimate of the set — confirm with live quote</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.expedia.ca/Sainte-Foy-Sillery-Cap-Rouge-Quebec-City-Hotels-Cheap-Hotels.0-n7125-0-tCheapHotels.Travel-Guide-Filter-Hotels" target="_blank" rel="noopener">Expedia area guide</a>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">4</div>
+    <div><h3>Quality Inn &amp; Suites Lévis</h3><div class="meta">Budget hotel · Lévis (Hwy 20) · ~3 miles to Québec–Lévis ferry</div></div>
+    <div class="price"><div class="big">~C$2,006</div><div class="sub">~C$251/person · ~C$401/nt</div></div>
+  </div>
+  <div><span class="tag">2× rooms</span><span class="tag">Free breakfast</span><span class="tag">Free parking</span><span class="tag">Indoor pool</span><span class="tag">Guest laundry</span></div>
+  <ul class="facts">
+    <li>Config: 2× rooms, 96-room non-smoking property</li>
+    <li>Nightly est. ~C$170/room (mid-budget Choice tier with heated indoor pool)</li>
+    <li>5 nights: 2 × 170 × 5 = C$1,700 + ~18% tax ≈ <b>C$2,006 all-in</b></li>
+    <li>Ferry &lt;3 mi away avoids bridge traffic into Old Quebec</li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Indoor pool for the kids + free breakfast at a budget price</li><li>Ferry option into Old Quebec</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>Lévis-side NYE late-night return — check ferry holiday schedule</li><li>Basic motel-tier rooms</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.expedia.ca/Cite-Universitaire-Quebec-City-Hotels.0-n553248635976382052-0.Travel-Guide-Filter-Hotels" target="_blank" rel="noopener">Expedia area guide</a>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">5</div>
+    <div><h3>Chalet Ferme St-Adolphe, Stoneham</h3><div class="meta">Chalet · Stoneham-et-Tewkesbury · ~25–30 min drive to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$2,240</div><div class="sub">~C$280/person · ~C$448/nt · published rates</div></div>
+  </div>
+  <div><span class="tag">3 BR / 2 BA</span><span class="tag">Sleeps 8</span><span class="tag">Full kitchen</span><span class="tag">Washer/dryer</span><span class="tag">4 free parking spots</span><span class="tag">Taxes included</span></div>
+  <ul class="facts">
+    <li>Beds: 2 queen + 1 double (sleeps 6 in beds; 8 max with extra children — confirm with host)</li>
+    <li><b>Published rates:</b> C$160–360/nt taxes-included + C$60/nt for &gt;4 guests + C$140 cleaning; Christmas week = peak</li>
+    <li>5-night peak est.: C$420/nt × 5 + C$140 cleaning = <b>~C$2,240 total</b> (no platform fees, direct booking)</li>
+    <li>Outdoor fireplace, sugar shack on site, 10 min from Stoneham ski resort; $500 refundable deposit</li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Cheapest verified rental; taxes included; no platform fees</li><li>Real winter chalet experience; direct host relationship</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>Only 3 bedrooms for 8 — tight for two family groups</li><li>Mountain-road winter driving daily</li><li>Strict cancellation: 35% non-refundable, balance non-refundable 20 days out</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.cottagesrental.com/en/cottage-rental/quebec-city-and-area-jacques-cartier/stoneham-et-tewkesbury/chalet-stoneham-ferme-st-adolphe/" target="_blank" rel="noopener">Listing (published rates)</a>
+    <a href="https://ChaletsAuQuebec.com/chalets-a-louer/quebec/charlevoix/stoneham-et-tewkesbury" target="_blank" rel="noopener">ChaletsAuQuebec</a>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">6</div>
+    <div><h3>Super 8 by Wyndham Quebec City</h3><div class="meta">Budget hotel · Sainte-Foy/Ancienne-Lorette · ~15–20 min to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$2,360</div><div class="sub">~C$295/person · ~C$472/nt (+C$100 extra-adult fee)</div></div>
+  </div>
+  <div><span class="tag">2× rooms</span><span class="tag">Free breakfast</span><span class="tag">Free parking</span><span class="tag">80-ft waterslide</span><span class="tag">Hot tub + sauna</span><span class="tag">Microwave + fridge</span></div>
+  <ul class="facts">
+    <li>Config: 2× rooms with microwave + mini-fridge; up to 3 kids under 18 stay free; extra adult C$20/nt on existing bedding (covers the 5-person family room: +C$100 total)</li>
+    <li>Nightly est. ~C$200/room (recent deals ~C$180; NY-week premium applied)</li>
+    <li>5 nights: 2 × 200 × 5 = C$2,000 + ~18% tax ≈ C$2,360 (+~C$100 fee = ~C$2,460)</li>
+    <li>8.2–8.8/10 ratings; C$200 credit-card damage deposit on arrival</li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Waterslide = best kid amenity at any budget price (ages 6, 6, 13)</li><li>Free breakfast; in-room microwave/fridge; laundry</li><li>Still ~C$1,900 cheaper than cheapest downtown hotel</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>15–20 min drive each way; 4 PM check-in</li><li>Basic continental breakfast; confirm pool open for Dec 2026</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.letsbookhotel.com/en/canada/quebec-city/hotel/super-8-quebec-ste-foy.aspx" target="_blank" rel="noopener">Property page</a>
+    <a href="https://www.hotelscombined.ca/Hotel/Super_8_by_Wyndham_Quebec_City.htm" target="_blank" rel="noopener">HotelsCombined</a>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank spec">7★</div>
+    <div><h3>Lévis Riverside Penthouse Complex</h3><div class="meta">Condo · St-Romuald, Lévis · ~15–20 min to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$1,850–2,100</div><div class="sub">~C$231–263/person · speculative estimate</div></div>
+  </div>
+  <div><span class="tag spec">Unverified estimate</span><span class="tag">Sleeps 8 in one unit</span><span class="tag">Group gathering space</span><span class="tag">Parking incl.</span></div>
+  <ul class="facts">
+    <li>Penthouse in riverside quadruplex sleeps 8; host also lists sister units in same building</li>
+    <li>Est. ~C$250–300/nt peak × 5 + cleaning + ~14% service + ~18.5% tax = <b>~C$1,850–2,100</b> — market-comp based, <b>not a quote</b></li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Could undercut the chalet floor <i>if</i> pricing holds</li><li>Big shared gathering space; river views</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>High uncertainty — request a live quote before counting on it</li><li>Driving distance from Old Quebec</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.airbnb.com/rooms/1577723338735371612" target="_blank" rel="noopener">Penthouse listing</a>
+    <a href="https://www.airbnb.com/rooms/1568295233270347287" target="_blank" rel="noopener">Sister unit (Horizon Suite)</a>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank spec">8★</div>
+    <div><h3>Lévis Two-Apartment Play</h3><div class="meta">2× 2BR townhouse apartments · Lévis · 1 min walk to Old Quebec ferry</div></div>
+    <div class="price"><div class="big">~C$2,170–2,370</div><div class="sub">~C$271–296/person · speculative estimate</div></div>
+  </div>
+  <div><span class="tag spec">Unverified estimate</span><span class="tag">2× (2 BR / 1 BA)</span><span class="tag">Sleeps 8</span><span class="tag">Ferry access</span></div>
+  <ul class="facts">
+    <li>Two stacked 2BR units in same building; host offers them for bigger groups (18 max); each: kitchen, free parking, washer/dryer</li>
+    <li>Est. ~C$140–160/nt per unit × 2 × 5 + cleaning + ~14% service + ~18.5% tax = <b>~C$2,170–2,370</b> — from market comps, <b>not a quote</b></li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Only in-city play that could touch the rental floor</li><li>Ferry to Old Quebec = no city driving</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>Group split across two units (hurts togetherness)</li><li>1 bath per unit; two cleaning fees; adjacent availability must be confirmed</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.airbnb.com/rooms/6383836" target="_blank" rel="noopener">Airbnb listing (Superhost)</a>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">9</div>
+    <div><h3>Old Beauport 4BR Apartment</h3><div class="meta">Apartment · Old Beauport · ~7 min drive to Old Quebec</div></div>
+    <div class="price"><div class="big">~C$2,495</div><div class="sub">~C$312/person · ~C$499/nt</div></div>
+  </div>
+  <div><span class="tag">4 BR / 1.5 BA</span><span class="tag">Sleeps 10</span><span class="tag">Full kitchen</span><span class="tag">3 free parking</span><span class="tag">4.94★ Superhost</span></div>
+  <ul class="facts">
+    <li>Historic 2-level apartment; dining room seats 8; 198 reviews at 4.94★</li>
+    <li>Est. ~C$340–380/nt peak × 5 + cleaning ~C$120 + ~14% service + ~18.5% tax = <b>~C$2,495–2,700</b></li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>Real 4-bedroom city option; cheapest verified-quality apartment for 8</li><li>Free parking; strong reviews</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>~C$250–450 above the chalet floor</li><li>1 full bath + powder room for 8 — tightest ratio</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.airbnb.com/rooms/1212527533091882091" target="_blank" rel="noopener">Airbnb listing</a>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+  <div class="card-top">
+    <div class="rank">10</div>
+    <div><h3>22-Chalet à louer, Stoneham</h3><div class="meta">Townhouse-chalet · Stoneham · ~25 min to Quebec City</div></div>
+    <div class="price"><div class="big">~C$2,520</div><div class="sub">~C$315/person · ~C$504/nt</div></div>
+  </div>
+  <div><span class="tag">4 BR / 3 BA</span><span class="tag">Sleeps 12</span><span class="tag">Spa</span><span class="tag">Fireplace</span><span class="tag">Direct booking</span></div>
+  <ul class="facts">
+    <li>2015 construction; 2 queens + 2 doubles + 4 singles; gas fireplace, babyfoot, washer/dryer</li>
+    <li>Published base from C$300/nt + taxes (peak varies); est. ~C$400/nt × 5 + ~18.5% tax + ~C$150 cleaning = <b>~C$2,520</b></li>
+  </ul>
+  <div class="proscons">
+    <div class="pros"><b>Pros</b><ul><li>4BR/3BA for 8 = comfortable; direct booking, no platform fees</li><li>Better bathroom ratio than Airbnb picks</li></ul></div>
+    <div class="cons"><b>Cons</b><ul><li>~C$280 above the Ferme floor; peak rate unpublished</li><li>Same winter-driving trade-off</li></ul></div>
+  </div>
+  <div class="links">Links:
+    <a href="https://www.chaletsalouer.com/fr/location-de-chalet/region-de-quebec-jacques-cartier/stoneham-et-tewkesbury/22-chalet-a-louer-a-stoneham/" target="_blank" rel="noopener">Listing</a>
+  </div>
+</div>
+
+<p style="font-size:.85rem;color:#5d6b75">★ = speculative estimate from market comps — request a live quote before relying on it.</p>
+
+<h2>Comparison table</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>#</th><th>Accommodation</th><th>Type</th><th>Location</th><th>Sleeps</th><th>Total est. (5 nt)</th><th>Per person</th><th>Per night</th><th>Breakfast</th><th>Pool</th><th>Drive to Old Qc</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>Motel Lévis</td><td>Hotel</td><td>Lévis</td><td>8 (2 rms)</td><td class="price-cell">~C$1,298</td><td>~C$162</td><td>~C$260</td><td>No</td><td>No</td><td>30–36 min</td></tr>
+    <tr><td>2</td><td>Econo Lodge Airport</td><td>Hotel</td><td>Sainte-Foy</td><td>8 (2 rms)</td><td class="price-cell">~C$1,652</td><td>~C$207</td><td>~C$330</td><td>Free</td><td>—</td><td>15–20 min</td></tr>
+    <tr><td>3</td><td>Hôtel Lindbergh</td><td>Hotel</td><td>Sainte-Foy</td><td>8 (2 rms)</td><td class="price-cell">~C$1,888</td><td>~C$236</td><td>~C$378</td><td>Free</td><td>No</td><td>~15 min</td></tr>
+    <tr><td>4</td><td>Quality Inn Lévis</td><td>Hotel</td><td>Lévis</td><td>8 (2 rms)</td><td class="price-cell">~C$2,006</td><td>~C$251</td><td>~C$401</td><td>Free</td><td>Indoor</td><td>Ferry + drive</td></tr>
+    <tr><td>5</td><td>Ferme St-Adolphe</td><td>Rental</td><td>Stoneham</td><td>8 (tight)</td><td class="price-cell">~C$2,240</td><td>~C$280</td><td>~C$448</td><td>Kitchen</td><td>No</td><td>25–30 min</td></tr>
+    <tr><td>6</td><td>Super 8 Ste-Foy</td><td>Hotel</td><td>Sainte-Foy</td><td>8 (2 rms)</td><td class="price-cell">~C$2,360</td><td>~C$295</td><td>~C$472</td><td>Free</td><td>Waterslide</td><td>15–20 min</td></tr>
+    <tr><td>7★</td><td>Lévis penthouse</td><td>Rental</td><td>Lévis</td><td>8</td><td class="price-cell">~C$1,850–2,100</td><td>~C$231–263</td><td>~C$370–420</td><td>Kitchen</td><td>—</td><td>15–20 min</td></tr>
+    <tr><td>8★</td><td>Lévis 2× 2BR</td><td>Rental</td><td>Lévis</td><td>8</td><td class="price-cell">~C$2,170–2,370</td><td>~C$271–296</td><td>~C$434–474</td><td>Kitchen</td><td>—</td><td>Ferry + drive</td></tr>
+    <tr><td>9</td><td>Old Beauport 4BR</td><td>Rental</td><td>Beauport</td><td>10</td><td class="price-cell">~C$2,495</td><td>~C$312</td><td>~C$499</td><td>Kitchen</td><td>No</td><td>~7 min</td></tr>
+    <tr><td>10</td><td>22-Chalet Stoneham</td><td>Rental</td><td>Stoneham</td><td>12</td><td class="price-cell">~C$2,520</td><td>~C$315</td><td>~C$504</td><td>Kitchen</td><td>Spa</td><td>~25 min</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Budget verdict</h2>
+<div class="verdict">
+  <div class="card gold">
+    <h3>💰 Absolute cheapest: Motel Lévis (~C$1,298)</h3>
+    <p>Nothing beats it on price — ~70% less than the cheapest downtown hotel. But be honest about the trade: no breakfast, no pool, 7.2/10 reviews, 30+ min winter drives with a 6-year-old, and NYE bridge/ferry logistics. Add C$300–400 for breakfasts out and the gap to #2 nearly vanishes.</p>
+  </div>
+  <div class="card">
+    <h3>✅ Cheapest I'd actually book: Econo Lodge Airport (~C$1,652)</h3>
+    <p>Free breakfast for 8, free parking (even for 2 cars), connecting rooms, kids-stay-free. ~C$207/person for 5 nights over New Year's is remarkable, and it's the cheapest option that doesn't punish you daily.</p>
+  </div>
+  <div class="card">
+    <h3>🏊 Cheapest that keeps the kids happy: Super 8 (~C$2,360)</h3>
+    <p>The 80-ft waterslide + free breakfast + in-room microwave/fridge is the strongest family package under C$2,500. Worth the ~C$700 over Econo Lodge if pool time matters at −15°C. Still ~C$1,900 cheaper than the cheapest Old Quebec hotel.</p>
+  </div>
+  <div class="card">
+    <h3>🏠 Cheapest togetherness: Ferme St-Adolphe chalet (~C$2,240)</h3>
+    <p>The only verified sub-C$2,300 rental where all 8 share living space and a kitchen — published, taxes-included, fee-free direct pricing. If cooking together on NYE matters more than a pool, this is it. Tight at 3 BR for 8, and mountain roads daily.</p>
+  </div>
+</div>
+
+<h2>Winter &amp; booking caveats</h2>
+<div class="note">
+  <ul style="margin:.3rem 0;padding-left:1.15rem">
+    <li><b>Driving:</b> Sainte-Foy options = 15–20 min via autoroute; Old Quebec parking runs C$25–39/day if you drive in daily. Lévis options use the Pierre-Laporte bridge or the Québec–Lévis ferry (runs year-round — check holiday/late-night schedule, critical for NYE).</li>
+    <li><b>Occupancy:</b> the family group (3 adults + 2 kids = 5 in one hotel room) exceeds standard quad occupancy everywhere — confirm rollaway/extra-person policy when booking. Super 8 publishes C$20/nt extra-adult fee.</li>
+    <li><b>Minimum stays:</b> chalets commonly require 4–5 nights Dec 21–Jan 7 — your 5 nights satisfies this. Direct chalets often take 35% non-refundable deposits.</li>
+    <li><b>Book early:</b> New Year's week is peak season; get live quotes for your exact dates before treating any estimate as a price.</li>
+  </ul>
+</div>
+
+</main>
+
+<footer>
+  <p>Budget research compiled Sep 2026 for Dec 27, 2026 – Jan 1, 2027. Prices are estimates unless marked "published rates". Verify with live quotes before booking.</p>
+</footer>
+
+</body>
+</html>
