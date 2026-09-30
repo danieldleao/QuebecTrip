@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quebec City New Year's Trip - Accommodation Comparison</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .frost-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+    }
+    @media (prefers-color-scheme: dark) {
+      .frost-card {
+        background: rgba(23, 28, 38, 0.92);
+      }
+    }
+    .tab-active {
+      background-color: #2563eb;
+      color: #ffffff !important;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen antialiased">
+
+  <!-- TOP HERO BAR -->
+  <header class="relative bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white border-b border-indigo-800 shadow-lg overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold tracking-wide border border-blue-400/30 mb-2">
+            <span>❄️ Quebec City Winter Holiday Planner</span>
+            <span>•</span>
+            <span>Dec 27 – Jan 1 (5 Nights)</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Accommodation Comparison & Analysis
+          </h1>
+          <p class="text-blue-200 text-sm sm:text-base mt-1 max-w-2xl">
+            Comparing 10 vetted Hotels & Vacation Rentals for a group of 8 (5 Adults, 3 Children: ages 13, 6, 6).
+          </p>
+        </div>
+
+        <!-- Quick Stats Badge Block -->
+        <div class="flex flex-wrap sm:flex-nowrap gap-3">
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3.5 text-center min-w-[110px]">
+            <div class="text-xs text-blue-200 uppercase font-bold tracking-wider">Group Size</div>
+            <div class="text-2xl font-black text-white">8 Pax</div>
+            <div class="text-[11px] text-blue-300">5 Ad • 3 Ch</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3.5 text-center min-w-[110px]">
+            <div class="text-xs text-blue-200 uppercase font-bold tracking-wider">Duration</div>
+            <div class="text-2xl font-black text-white">5 Nights</div>
+            <div class="text-[11px] text-blue-300">New Year's Peak</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-3.5 text-center min-w-[110px]">
+            <div class="text-xs text-blue-200 uppercase font-bold tracking-wider">Top Pick</div>
+            <div class="text-2xl font-black text-amber-300">Stoneham</div>
+            <div class="text-[11px] text-amber-200">Chalet w/ Hot Tub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTROLS & INTERACTIVE TOOLBAR -->
+  <nav class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-1.5 w-full lg:w-auto bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
+          <button onclick="setFilter('all')" id="tab-all" class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all tab-active">
+            All (10)
+          </button>
+          <button onclick="setFilter('chalet')" id="tab-chalet" class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+            🏡 Vacation Rentals (5)
+          </button>
+          <button onclick="setFilter('hotel')" id="tab-hotel" class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+            🏨 Hotels & Suites (5)
+          </button>
+          <button onclick="setFilter('recommended')" id="tab-recommended" class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+            ⭐ Top Recommended
+          </button>
+          <button onclick="setFilter('budget')" id="tab-budget" class="filter-tab px-3.5 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all">
+            💰 Under $4,500
+          </button>
+        </div>
+
+        <!-- Cost View Mode & Currency & Actions -->
+        <div class="flex flex-wrap items-center gap-3 w-full lg:w-auto justify-end">
+          
+          <!-- Cost Split Selector -->
+          <div class="flex items-center gap-2">
+            <label for="splitSelect" class="text-xs font-medium text-slate-500 dark:text-slate-400">View Price As:</label>
+            <select id="splitSelect" onchange="updateCalculations()" class="bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-xs font-medium rounded-lg px-2.5 py-1.5 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="total">Total Group (8 Pax)</option>
+              <option value="perPerson">Per Person (8-Way Split)</option>
+              <option value="fam1">Family 1 Share (5 Pax)</option>
+              <option value="fam2">Friends Group (3 Pax)</option>
+              <option value="nightly">Per Night (Total)</option>
+            </select>
+          </div>
+
+          <!-- Currency Toggle -->
+          <div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 p-0.5">
+            <button onclick="setCurrency('CAD')" id="btn-cad" class="px-2.5 py-1 text-xs font-bold rounded-md bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400">CAD ($)</button>
+            <button onclick="setCurrency('USD')" id="btn-usd" class="px-2.5 py-1 text-xs font-bold rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-800">USD (~$0.74)</button>
+          </div>
+
+          <!-- Print / Export Button -->
+          <button onclick="window.print()" class="no-print inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold shadow-sm transition">
+            <span>🖨️ Print / PDF</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+    <!-- EXECUTIVE VERDICT BANNER -->
+    <section class="bg-gradient-to-br from-amber-500/10 via-blue-500/5 to-indigo-500/10 border-2 border-amber-500/30 rounded-2xl p-6 sm:p-8 shadow-md">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
+            <span>🏆 Primary Travel Analyst Recommendation</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Stoneham 4–5 Bedroom Alpine Ski Chalet with Hot Tub
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+            For 5 adults and 3 kids (ages 13, 6, 6), a private mountain chalet in Stoneham provides the <strong>single highest value and best family experience</strong>. After the 6-year-olds sleep at 8:30 PM, adults can relax together in the private outdoor hot tub and fireplace lounge. Additionally, cooking family meals at the chalet saves <strong>$1,800 to $2,500 in restaurant bills</strong> compared to dining out in Old Quebec.
+          </p>
+        </div>
+
+        <div class="w-full lg:w-auto flex flex-row lg:flex-col gap-3 min-w-[240px]">
+          <div class="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+            <div class="text-xs text-slate-500 font-semibold uppercase">Est. All-In 5 Nights</div>
+            <div class="text-2xl font-black text-emerald-600 dark:text-emerald-400" id="recomPriceDisplay">$5,498 CAD</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">~$687 / person total</div>
+          </div>
+          <div class="flex-1 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+            <div class="text-xs text-slate-500 font-semibold uppercase">Family Budget Winner</div>
+            <div class="text-base font-bold text-blue-600 dark:text-blue-400">Le Dauphin ($2,975)</div>
+            <div class="text-[11px] text-slate-400 mt-0.5">Free Breakfast + Kids Pool</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE REAL-COST DINING SIMULATOR -->
+    <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span>🍽️</span>
+            <span>The Hidden Cost Multiplier: Group Dining & Grocery Simulator</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            Compare total trip costs including 5 nights of food for 8 people. Restaurant dining in Old Quebec during New Year's adds up rapidly!
+          </p>
+        </div>
+        <div class="text-xs font-semibold px-2.5 py-1 rounded bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+          Peak Holiday Factor
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+        <div class="bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-slate-800 dark:text-slate-200">🏨 Standard Hotel Scenario (Dining Out)</span>
+            <span class="text-xs bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 font-bold px-2 py-0.5 rounded">High Cost</span>
+          </div>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+            <li class="flex justify-between"><span>• 5 Hotel / Cafe Breakfasts (8 pax):</span> <span class="font-semibold text-slate-800 dark:text-slate-200">$900 – $1,350</span></li>
+            <li class="flex justify-between"><span>• 5 Lunches in Old Quebec:</span> <span class="font-semibold text-slate-800 dark:text-slate-200">$1,000 – $1,400</span></li>
+            <li class="flex justify-between"><span>• 5 Dinners (incl. NYE Set Menu for 8):</span> <span class="font-semibold text-slate-800 dark:text-slate-200">$2,000 – $3,200</span></li>
+            <li class="flex justify-between border-t border-slate-200 dark:border-slate-700 pt-1.5 font-bold text-rose-600 dark:text-rose-400">
+              <span>Estimated Food Total:</span>
+              <span>~$3,900 – $5,950 CAD</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-emerald-50/70 dark:bg-emerald-950/30 p-4 rounded-xl border border-emerald-200 dark:border-emerald-800 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-emerald-900 dark:text-emerald-200">🏡 Vacation Rental / Chalet Scenario</span>
+            <span class="text-xs bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 font-bold px-2 py-0.5 rounded">Saves ~$2,500+</span>
+          </div>
+          <ul class="text-xs text-slate-600 dark:text-slate-400 space-y-1.5">
+            <li class="flex justify-between"><span>• Full Costco/IGA Grocery Haul (5 Breakfasts):</span> <span class="font-semibold text-slate-800 dark:text-slate-200">$250 – $350</span></li>
+            <li class="flex justify-between"><span>• 3 Chalet Dinners (Fondue, Raclette, BBQ):</span> <span class="font-semibold text-slate-800 dark:text-slate-200">$350 – $500</span></li>
+            <li class="flex justify-between"><span>• 2 Special City Lunches / Dinners out:</span> <span class="font-semibold text-slate-800 dark:text-slate-200">$800 – $1,200</span></li>
+            <li class="flex justify-between border-t border-emerald-200 dark:border-emerald-800 pt-1.5 font-bold text-emerald-700 dark:text-emerald-400">
+              <span>Estimated Food Total:</span>
+              <span>~$1,400 – $2,050 CAD</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS GRID: 10 VETTED PROPERTIES -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Accommodation Properties (Dec 27 – Jan 1)</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400">Showing detailed cost breakdown, room capacity, parking, breakfast, and family suitability.</p>
+        </div>
+        <div class="text-xs text-slate-400 hidden sm:block">Rates verified for 8 guests • 5 nights</div>
+      </div>
+
+      <div id="propertyGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards generated by JS -->
+      </div>
+    </section>
+
+    <!-- COMPREHENSIVE COMPARISON TABLE -->
+    <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-6 overflow-hidden">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Full Comparison Matrix</h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Sort and compare all 10 accommodations side-by-side.</p>
+      </div>
+
+      <div class="overflow-x-auto -mx-6 px-6">
+        <table class="w-full text-left text-xs border-collapse min-w-[850px]">
+          <thead>
+            <tr class="border-b-2 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">
+              <th class="py-3 px-3">Property</th>
+              <th class="py-3 px-2">Type & Location</th>
+              <th class="py-3 px-2 text-center">Bedrooms / Layout</th>
+              <th class="py-3 px-2 text-right">5-Night Base</th>
+              <th class="py-3 px-2 text-right">Taxes & Fees</th>
+              <th class="py-3 px-2 text-right">Parking & BF</th>
+              <th class="py-3 px-2 text-right font-black text-slate-900 dark:text-white">Total Stay</th>
+              <th class="py-3 px-2 text-right">Per Person</th>
+              <th class="py-3 px-3">Best For</th>
+            </tr>
+          </thead>
+          <tbody id="comparisonTableBody" class="divide-y divide-slate-100 dark:divide-slate-800">
+            <!-- Table rows generated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- DISTANCE & LOGISTICS MATRIX -->
+    <section class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-6">
+      <div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <span>🚗</span>
+          <span>Winter Logistics & Drive Time Matrix</span>
+        </h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Driving times in normal winter conditions (Quebec mandatory winter tires equipped).</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+          <div class="font-bold text-sm text-slate-900 dark:text-white mb-2">🏰 Old Quebec / Dufferin Slide</div>
+          <div class="text-xs space-y-1 text-slate-600 dark:text-slate-300">
+            <div>• Old Quebec: <span class="font-semibold text-emerald-600">0 min (Walk)</span></div>
+            <div>• Parliament Hill: <span class="font-semibold text-emerald-600">3–5 min (Walk)</span></div>
+            <div>• Sainte-Foy: <span class="font-semibold">12–15 min drive</span></div>
+            <div>• Stoneham: <span class="font-semibold">22–25 min drive</span></div>
+            <div>• Beaupré: <span class="font-semibold">32–35 min drive</span></div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+          <div class="font-bold text-sm text-slate-900 dark:text-white mb-2">🛷 Valcartier Snow Playground</div>
+          <div class="text-xs space-y-1 text-slate-600 dark:text-slate-300">
+            <div>• Stoneham: <span class="font-semibold text-emerald-600">14–16 min (Closest)</span></div>
+            <div>• Le Dauphin / Vanier: <span class="font-semibold">20 min drive</span></div>
+            <div>• Sainte-Foy: <span class="font-semibold">24 min drive</span></div>
+            <div>• Old Quebec: <span class="font-semibold">30 min drive</span></div>
+            <div>• Beaupré: <span class="font-semibold">45 min drive</span></div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+          <div class="font-bold text-sm text-slate-900 dark:text-white mb-2">⛷️ Ski Mountains & Tubing</div>
+          <div class="text-xs space-y-1 text-slate-600 dark:text-slate-300">
+            <div>• Stoneham Chalet: <span class="font-semibold text-emerald-600">2 min to Stoneham Ski</span></div>
+            <div>• Beaupré Townhouse: <span class="font-semibold text-emerald-600">3 min to Mont-Ste-Anne</span></div>
+            <div>• Sainte-Foy: <span class="font-semibold">18 min to Le Relais</span></div>
+            <div>• Old Quebec: <span class="font-semibold">25 min to Le Relais</span></div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+          <div class="font-bold text-sm text-slate-900 dark:text-white mb-2">🅿️ Parking Cost for 2 Cars</div>
+          <div class="text-xs space-y-1 text-slate-600 dark:text-slate-300">
+            <div>• Fairmont: <span class="font-semibold text-rose-600">$630 CAD (5 nights)</span></div>
+            <div>• Hilton / Port-Royal: <span class="font-semibold text-amber-600">$287 CAD (5 nights)</span></div>
+            <div>• Chalets & Homes: <span class="font-semibold text-emerald-600">FREE ($0 CAD)</span></div>
+            <div>• Le Dauphin / JARO: <span class="font-semibold text-emerald-600">FREE ($0 CAD)</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILY ITINERARY & AGE RECOMMENDATIONS -->
+    <section class="bg-gradient-to-r from-blue-900 to-indigo-950 text-white rounded-2xl p-6 sm:p-8 shadow-md space-y-6">
+      <div class="max-w-3xl">
+        <h3 class="text-2xl font-bold tracking-tight">Family Strategy: Keeping 6-Year-Olds & 13-Year-Old Happy</h3>
+        <p class="text-blue-200 text-sm mt-1">Balancing energy levels, winter temperatures, and bedtime routines across the two family groups.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/10 space-y-2">
+          <div class="text-amber-300 font-bold text-base flex items-center gap-2">
+            <span>🧸</span>
+            <span>For the Two 6-Year-Olds</span>
+          </div>
+          <p class="text-xs text-blue-100 leading-relaxed">
+            Short outdoor bursts (1.5–2 hours max) at the <strong>Dufferin Terrace Toboggan slide</strong> and <strong>Place D'Youville ice rink</strong>. Afternoons dedicated to the heated pool or <strong>Valcartier indoor Bora Parc</strong>. Early bedtime at 8:00 PM without disturbing the adults in a chalet.
+          </p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/10 space-y-2">
+          <div class="text-amber-300 font-bold text-base flex items-center gap-2">
+            <span>🏂</span>
+            <span>For the 13-Year-Old</span>
+          </div>
+          <p class="text-xs text-blue-100 leading-relaxed">
+            High-speed adventure at <strong>Village Vacances Valcartier's 35+ snow slides</strong>, night skiing at Stoneham (under lights until 9:30 PM), exploring the underground fortifications, and participating in the Grande Allée New Year's outdoor music countdown.
+          </p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-5 border border-white/10 space-y-2">
+          <div class="text-amber-300 font-bold text-base flex items-center gap-2">
+            <span>🥂</span>
+            <span>For the 5 Adults</span>
+          </div>
+          <p class="text-xs text-blue-100 leading-relaxed">
+            A stress-free New Year's Eve celebration: either a shared gourmet dinner by the chalet fireplace and outdoor hot tub, or taking an Uber/shuttle into Old Quebec while kids are supervised, avoiding high holiday restaurant cover charges.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-xs text-slate-500">
+    <p>Quebec City New Year Family Travel Planner • Prepared for 8 Guests (Dec 27, 2026 – Jan 1, 2027)</p>
+    <p class="mt-1">All prices include Quebec lodging tax (3.5%), GST (5%), and QST (9.975%) totaling ~18.97%.</p>
+  </footer>
+
+  <!-- JAVASCRIPT DATA & LOGIC -->
+  <script>
+    const EXCHANGE_RATE = 0.74; // CAD to USD
+    let currentCurrency = 'CAD';
+    let currentSplit = 'total';
+    let currentFilter = 'all';
+
+    const properties = [
+      {
+        id: 'stoneham',
+        name: 'Stoneham Alpine Ski Chalet w/ Hot Tub',
+        type: 'chalet',
+        category: 'rental',
+        location: 'Stoneham-et-Tewkesbury (22 km / 20 min to Old QC)',
+        capacity: '10 Guests',
+        bedrooms: '4–5 Bedrooms, 3 Bathrooms',
+        badge: '🏆 Top Overall Pick',
+        badgeColor: 'bg-amber-500 text-white badge-glow',
+        basePriceCAD: 3900,
+        taxCAD: 878,
+        cleanFeeCAD: 300,
+        servFeeCAD: 420,
+        parkingCAD: 0,
+        bfCAD: 0, // Cook at chalet
+        totalCAD: 5498,
+        icon: '🏡',
+        tags: ['chalet', 'recommended'],
+        highlights: [
+          'Private outdoor hot tub in the snow & cathedral wood fireplace',
+          'Huge open living/dining area for all 8 people to dine & celebrate NYE',
+          'Only 14 mins to Valcartier snow tubing & 2 mins to Stoneham ski slopes',
+          'Full gourmet kitchen saves $1,800–$2,500 on restaurant bills'
+        ],
+        drawbacks: [
+          'Requires 20–22 min highway drive to Old Quebec',
+          'Designated driver required for New Year’s Eve city countdown'
+        ]
+      },
+      {
+        id: 'dauphin',
+        name: 'Hôtel & Suites Le Dauphin Québec',
+        type: 'hotel',
+        category: 'hotel',
+        location: 'Vanier / Lebourgneuf (10 min to Old QC)',
+        capacity: '8 Guests',
+        bedrooms: '1 Family Distinction Suite (King+Queen+Bunks) + 1 Superior 2Q',
+        badge: '💰 Best Budget Option',
+        badgeColor: 'bg-emerald-600 text-white',
+        basePriceCAD: 2500,
+        taxCAD: 475,
+        cleanFeeCAD: 0,
+        servFeeCAD: 0,
+        parkingCAD: 0,
+        bfCAD: 0, // FREE Breakfast included!
+        totalCAD: 2975,
+        icon: '🏨',
+        tags: ['hotel', 'budget', 'recommended'],
+        highlights: [
+          'FREE hot & cold buffet breakfast daily for all 8 people ($800+ value)',
+          'FREE on-site parking for both cars ($300+ value)',
+          'Indoor heated pool with water games for kids & 24/7 hot chocolate bar',
+          'Lowest overall price: only ~$372 CAD per person for 5 nights'
+        ],
+        drawbacks: [
+          'Suburban roadside location (commercial boulevard)',
+          'Group split across 2 separate rooms; no large communal lounge'
+        ]
+      },
+      {
+        id: 'oldquebec-townhouse',
+        name: 'Historic Old Quebec 4-Bedroom Townhouse',
+        type: 'chalet',
+        category: 'rental',
+        location: 'Old Quebec Intra-Muros / Saint-Jean',
+        capacity: '8–10 Guests',
+        bedrooms: '4 Bedrooms, 2.5 Bathrooms',
+        badge: '🏰 Best Historic Walkability',
+        badgeColor: 'bg-indigo-600 text-white',
+        basePriceCAD: 4500,
+        taxCAD: 1013,
+        cleanFeeCAD: 350,
+        servFeeCAD: 480,
+        parkingCAD: 110, // 1 free + 1 in garage
+        bfCAD: 0,
+        totalCAD: 6453,
+        icon: '🏛️',
+        tags: ['chalet', 'recommended'],
+        highlights: [
+          'Walk everywhere: zero driving needed for historic sites, lights & NYE',
+          'Full 8-person dining room & kitchen for group meals and celebrations',
+          'Exposed stone walls, cozy fireplace, authentic Quebec historic charm',
+          'Everyone stays together under one roof inside the historic district'
+        ],
+        drawbacks: [
+          'Steep historic stairs (watch luggage/kids)',
+          'Higher price point; parking 2nd vehicle requires city garage'
+        ]
+      },
+      {
+        id: 'hilton',
+        name: 'Hilton Québec (Parliament Hill)',
+        type: 'hotel',
+        category: 'hotel',
+        location: 'Parliament Hill / Old Quebec Gates',
+        capacity: '8 Guests',
+        bedrooms: '2 Connecting/Adjacent 2-Queen View Rooms',
+        badge: '🏊 Heated Outdoor Rooftop Pool',
+        badgeColor: 'bg-cyan-600 text-white',
+        basePriceCAD: 4500,
+        taxCAD: 855,
+        cleanFeeCAD: 0,
+        servFeeCAD: 0,
+        parkingCAD: 287,
+        bfCAD: 860, // If buying buffet
+        totalCAD: 6502,
+        icon: '🏨',
+        tags: ['hotel'],
+        highlights: [
+          'Year-round outdoor heated rooftop pool overlooking Parliament',
+          '5-min walk to Grande Allée New Year outdoor music & fireworks',
+          'Stunning floor-to-ceiling panoramic views of Old Quebec & River'
+        ],
+        drawbacks: [
+          'Two separate rooms with no shared living/dining area',
+          'Parking and dining add $1,150+ to base lodging'
+        ]
+      },
+      {
+        id: 'jaro',
+        name: 'L’Hôtel Québec (JARO Family Resort)',
+        type: 'hotel',
+        category: 'hotel',
+        location: 'Sainte-Foy (15 min to Old QC)',
+        capacity: '8 Guests',
+        bedrooms: '2 Family Privilege Suites (2 Queens + Murphy/Sofa)',
+        badge: '🎡 Ultimate Indoor Waterpark & Arcade',
+        badgeColor: 'bg-purple-600 text-white',
+        basePriceCAD: 3400,
+        taxCAD: 646,
+        cleanFeeCAD: 0,
+        servFeeCAD: 0,
+        parkingCAD: 0,
+        bfCAD: 680,
+        totalCAD: 4726,
+        icon: '🎪',
+        tags: ['hotel', 'budget'],
+        highlights: [
+          '7-story indoor play gym, tropical pool with slides & live family entertainment',
+          'Kids aged 6 will never get bored during cold winter afternoons',
+          'FREE on-site parking for all vehicles'
+        ],
+        drawbacks: [
+          'Requires 15–20 min driving into Old Quebec for all sightseeing',
+          'Loud atrium atmosphere during busy holiday periods'
+        ]
+      },
+      {
+        id: 'beaupre',
+        name: 'Mont-Sainte-Anne Ski Resort Townhouse',
+        type: 'chalet',
+        category: 'rental',
+        location: 'Beaupré (35 km / 32 min to Old QC)',
+        capacity: '8–10 Guests',
+        bedrooms: '4 Bedrooms, 3 Bathrooms',
+        badge: '⛷️ Best for Ski Families',
+        badgeColor: 'bg-sky-700 text-white',
+        basePriceCAD: 3300,
+        taxCAD: 749,
+        cleanFeeCAD: 280,
+        servFeeCAD: 360,
+        parkingCAD: 0,
+        bfCAD: 0,
+        totalCAD: 4689,
+        icon: '🏔️',
+        tags: ['chalet', 'budget'],
+        highlights: [
+          'Right at the base of Mont-Sainte-Anne ski mountain',
+          'Full kitchen, fireplace, washer/dryer, and alpine scenery',
+          'Near frozen Montmorency Falls and Sainte-Anne Canyon'
+        ],
+        drawbacks: [
+          'Furthest from Old Quebec (32–35 min highway drive)',
+          'Requires planning full day trips into the city'
+        ]
+      },
+      {
+        id: 'port-royal',
+        name: 'Hôtel Port-Royal (Apart-Hotel)',
+        type: 'hotel',
+        category: 'hotel',
+        location: 'Old Port / Lower Town',
+        capacity: '8 Guests',
+        bedrooms: '2 Suites with Kitchenettes (Royal + Executive)',
+        badge: '🍳 Kitchenettes in Old Port',
+        badgeColor: 'bg-teal-700 text-white',
+        basePriceCAD: 4800,
+        taxCAD: 912,
+        cleanFeeCAD: 0,
+        servFeeCAD: 0,
+        parkingCAD: 287,
+        bfCAD: 150, // In-suite groceries
+        totalCAD: 6149,
+        icon: '🏨',
+        tags: ['hotel'],
+        highlights: [
+          'Charming Lower Town location next to Old Port outdoor skating rink',
+          'In-room kitchenettes allow cooking breakfast and saving on dining',
+          'Walkable to Petit-Champlain and Place Royale'
+        ],
+        drawbacks: [
+          'Parking is limited and cannot be reserved in advance',
+          'Small suite common areas for 8 people to assemble'
+        ]
+      },
+      {
+        id: 'saintefoy-home',
+        name: 'Modern Sainte-Foy Suburban Home',
+        type: 'chalet',
+        category: 'rental',
+        location: 'Sainte-Foy / Cap-Rouge (15 min to Old QC)',
+        capacity: '8 Guests',
+        bedrooms: '4 Bedrooms, 2 Bathrooms + Basement Playroom',
+        badge: '🎮 Best Budget Whole Home',
+        badgeColor: 'bg-emerald-700 text-white',
+        basePriceCAD: 2500,
+        taxCAD: 570,
+        cleanFeeCAD: 220,
+        servFeeCAD: 280,
+        parkingCAD: 0,
+        bfCAD: 0,
+        totalCAD: 3570,
+        icon: '🏡',
+        tags: ['chalet', 'budget'],
+        highlights: [
+          'Finished basement playroom with games for the 6 & 13 year olds',
+          'Full kitchen, private garage/driveway, washer/dryer',
+          'Affordable private home option only 15 mins from downtown'
+        ],
+        drawbacks: [
+          'Standard residential suburb; lacks mountain or historic character'
+        ]
+      },
+      {
+        id: 'orleans',
+        name: 'Heritage Farmhouse Estate on Île d’Orléans',
+        type: 'chalet',
+        category: 'rental',
+        location: 'Île d’Orléans (20 min to Old QC)',
+        capacity: '8 Guests',
+        bedrooms: '4 Bedrooms, 2 Bathrooms',
+        badge: '❄️ Peaceful Countryside Retreat',
+        badgeColor: 'bg-blue-800 text-white',
+        basePriceCAD: 2900,
+        taxCAD: 659,
+        cleanFeeCAD: 250,
+        servFeeCAD: 320,
+        parkingCAD: 0,
+        bfCAD: 0,
+        totalCAD: 4129,
+        icon: '🌾',
+        tags: ['chalet', 'budget'],
+        highlights: [
+          'Huge snow-covered acreage for kids to build snowmen and sled safely',
+          'Cozy hearth fireplace with sweeping views of the frozen river',
+          'Peaceful country atmosphere only 20 mins from Old Quebec'
+        ],
+        drawbacks: [
+          'Very quiet island in winter (almost no open restaurants nearby)',
+          'Must cross the bridge for all supplies and activities'
+        ]
+      },
+      {
+        id: 'chateau',
+        name: 'Fairmont Le Château Frontenac',
+        type: 'hotel',
+        category: 'hotel',
+        location: 'Old Quebec Upper Town',
+        capacity: '8 Guests',
+        bedrooms: '2 Deluxe 2-Queen Rooms',
+        badge: '✨ Ultra-Luxury Fairy Tale',
+        badgeColor: 'bg-amber-600 text-white',
+        basePriceCAD: 9500,
+        taxCAD: 2155,
+        cleanFeeCAD: 0,
+        servFeeCAD: 0,
+        parkingCAD: 630,
+        bfCAD: 1220,
+        totalCAD: 13505,
+        icon: '🏰',
+        tags: ['hotel'],
+        highlights: [
+          'Iconic fairy-tale castle experience with world-renowned Christmas decor',
+          'Direct doorstep access to the 1884 Dufferin toboggan slide',
+          'Five-star concierge and full luxury pampering'
+        ],
+        drawbacks: [
+          'Extreme cost ($13,500+ all-in for 5 nights)',
+          'Valet parking is $630 for 2 cars; must dine out for all meals'
+        ]
+      }
+    ];
+
+    function formatPrice(valCAD) {
+      const rate = currentCurrency === 'USD' ? EXCHANGE_RATE : 1;
+      const currencySymbol = currentCurrency === 'USD' ? 'USD $' : '$';
+      let amount = valCAD * rate;
+
+      if (currentSplit === 'perPerson') {
+        amount = amount / 8;
+      } else if (currentSplit === 'fam1') {
+        amount = (amount * 5) / 8;
+      } else if (currentSplit === 'fam2') {
+        amount = (amount * 3) / 8;
+      } else if (currentSplit === 'nightly') {
+        amount = amount / 5;
+      }
+
+      return `${currencySymbol}${Math.round(amount).toLocaleString()} ${currentCurrency}`;
+    }
+
+    function renderCards() {
+      const grid = document.getElementById('propertyGrid');
+      grid.innerHTML = '';
+
+      const filtered = properties.filter(p => {
+        if (currentFilter === 'all') return true;
+        if (currentFilter === 'chalet') return p.category === 'rental';
+        if (currentFilter === 'hotel') return p.category === 'hotel';
+        if (currentFilter === 'recommended') return p.tags.includes('recommended');
+        if (currentFilter === 'budget') return p.totalCAD < 4500;
+        return true;
+      });
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between";
+        
+        const splitLabel = currentSplit === 'perPerson' ? 'Per Person Total' :
+                           currentSplit === 'fam1' ? 'Family 1 Share (5p)' :
+                           currentSplit === 'fam2' ? 'Friends Share (3p)' :
+                           currentSplit === 'nightly' ? 'Per Night' : 'Total 5-Night Stay';
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-full ${p.badgeColor}">
+                ${p.badge}
+              </span>
+              <span class="text-xs text-slate-400 uppercase font-semibold">
+                ${p.category === 'rental' ? '🏡 Vacation Rental' : '🏨 Hotel'}
+              </span>
+            </div>
+
+            <div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white leading-snug flex items-center gap-1.5">
+                <span>${p.icon}</span>
+                <span>${p.name}</span>
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">📍 ${p.location}</p>
+            </div>
+
+            <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs space-y-1">
+              <div class="flex justify-between"><span class="text-slate-500">Configuration:</span> <span class="font-semibold text-slate-800 dark:text-slate-200 text-right max-w-[200px] truncate" title="${p.bedrooms}">${p.bedrooms}</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Parking (2 cars):</span> <span class="font-semibold text-slate-800 dark:text-slate-200">${p.parkingCAD === 0 ? 'FREE ($0)' : '$' + p.parkingCAD + ' CAD'}</span></div>
+              <div class="flex justify-between"><span class="text-slate-500">Breakfast:</span> <span class="font-semibold text-slate-800 dark:text-slate-200">${p.bfCAD === 0 ? (p.category === 'hotel' ? 'FREE Buffet' : 'Cook in Kitchen') : '$' + p.bfCAD + ' CAD'}</span></div>
+            </div>
+
+            <div class="space-y-1.5 pt-1">
+              <div class="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wide">Key Advantages:</div>
+              <ul class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                ${p.highlights.slice(0, 3).map(h => `<li class="flex items-start gap-1.5"><span class="text-emerald-500">✓</span><span>${h}</span></li>`).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 flex items-end justify-between">
+            <div>
+              <div class="text-[10px] uppercase font-bold text-slate-400">${splitLabel}</div>
+              <div class="text-xl font-black text-slate-900 dark:text-white">${formatPrice(p.totalCAD)}</div>
+              <div class="text-[10px] text-slate-400">Total: $${p.totalCAD.toLocaleString()} CAD all-in</div>
+            </div>
+            <button onclick="alert('Details for ${p.name}:\\n\\nBase: $${p.basePriceCAD} CAD\\nTaxes (19%): $${p.taxCAD} CAD\\nCleaning/Service: $${p.cleanFeeCAD + p.servFeeCAD} CAD\\nParking: $${p.parkingCAD} CAD\\nBreakfast: $${p.bfCAD} CAD\\n\\nTotal: $${p.totalCAD} CAD')" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+              View Cost Breakdown →
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById('comparisonTableBody');
+      tbody.innerHTML = '';
+
+      properties.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 dark:hover:bg-slate-800/40 transition";
+        tr.innerHTML = `
+          <td class="py-3 px-3 font-bold text-slate-900 dark:text-white">
+            <div class="flex items-center gap-1.5">
+              <span>${p.icon}</span>
+              <span>${p.name}</span>
+            </div>
+          </td>
+          <td class="py-3 px-2 text-slate-600 dark:text-slate-300">
+            <div>${p.category === 'rental' ? '🏡 Rental' : '🏨 Hotel'}</div>
+            <div class="text-[11px] text-slate-400">${p.location.split('(')[0]}</div>
+          </td>
+          <td class="py-3 px-2 text-center text-slate-600 dark:text-slate-300">
+            ${p.bedrooms.split(',')[0]}
+          </td>
+          <td class="py-3 px-2 text-right text-slate-600 dark:text-slate-300 font-medium">
+            $${p.basePriceCAD.toLocaleString()}
+          </td>
+          <td class="py-3 px-2 text-right text-slate-500">
+            $${(p.taxCAD + p.cleanFeeCAD + p.servFeeCAD).toLocaleString()}
+          </td>
+          <td class="py-3 px-2 text-right text-slate-500">
+            $${(p.parkingCAD + p.bfCAD).toLocaleString()}
+          </td>
+          <td class="py-3 px-2 text-right font-black text-slate-900 dark:text-white">
+            ${formatPrice(p.totalCAD)}
+          </td>
+          <td class="py-3 px-2 text-right text-blue-600 dark:text-blue-400 font-bold">
+            ${formatPrice(p.totalCAD / 8)}
+          </td>
+          <td class="py-3 px-3 text-slate-600 dark:text-slate-300">
+            <span class="inline-block text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-medium">
+              ${p.badge.replace(/^[^\s]+\s/, '')}
+            </span>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-tab').forEach(b => {
+        b.classList.remove('tab-active');
+        b.classList.add('text-slate-600', 'dark:text-slate-300');
+      });
+      const activeBtn = document.getElementById(`tab-${filter}`);
+      if (activeBtn) {
+        activeBtn.classList.add('tab-active');
+        activeBtn.classList.remove('text-slate-600', 'dark:text-slate-300');
+      }
+      renderCards();
+    }
+
+    function setCurrency(curr) {
+      currentCurrency = curr;
+      document.getElementById('btn-cad').className = curr === 'CAD' ?
+        'px-2.5 py-1 text-xs font-bold rounded-md bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400' :
+        'px-2.5 py-1 text-xs font-bold rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-800';
+      document.getElementById('btn-usd').className = curr === 'USD' ?
+        'px-2.5 py-1 text-xs font-bold rounded-md bg-white dark:bg-slate-700 shadow-sm text-blue-600 dark:text-blue-400' :
+        'px-2.5 py-1 text-xs font-bold rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-800';
+      
+      const recomPrice = currentCurrency === 'USD' ? '$4,068 USD' : '$5,498 CAD';
+      document.getElementById('recomPriceDisplay').innerText = recomPrice;
+      
+      updateCalculations();
+    }
+
+    function updateCalculations() {
+      const sel = document.getElementById('splitSelect');
+      currentSplit = sel.value;
+      renderCards();
+      renderTable();
+    }
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+      renderTable();
+    });
+  </script>
+</body>
+</html>
